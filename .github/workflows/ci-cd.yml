@@ -15,10 +15,10 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
       - name: Build Docker image
-        run: docker build -t rannybal2024/catalog-service:${{ github.run_number }} .
+        run: docker build -t rannybal2024/data-channel-service:${{ github.run_number }} .
 
       - name: Push Docker image
-        run: docker push rannybal2024/catalog-service:${{ github.run_number }}
+        run: docker push rannybal2024/data-channel-service:${{ github.run_number }}
 
       - name: Update Kubernetes deployment with new image
         run: |
