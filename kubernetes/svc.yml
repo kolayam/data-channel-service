@@ -1,0 +1,15 @@
+kind: Service
+metadata:
+  name: data-channel-service
+  labels:
+    app: data-channel-service
+    name: data-channel-service
+spec:
+  ports:
+    - name: http
+      protocol: TCP
+      port: 9099
+      targetPort: 9099
+  selector:
+    app: data-channel-service
+    name: data-channel-service
