@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: data-channel-service2
+  name: data-channel-service
   namespace: nimble-platform
   labels:
     app: nimble-platform
@@ -9,14 +9,14 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      app: data-channel-service2
+      app: data-channel-service
   template:
     metadata:
       labels:
-        app: data-channel-service2
+        app: data-channel-service
     spec:
       containers:
-        - name: data-channel-service2
+        - name: data-channel-service
           image: 'rannybal2024/data-channel-service:IMAGE_TAG'
           ports:
             - containerPort: 9099
