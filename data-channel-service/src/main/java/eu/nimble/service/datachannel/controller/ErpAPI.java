@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.HashMap;
 import java.util.Map;
 
-@Api(value = "ERP", description = "ERP integration API")
+@Api(value = "ERP", tags = {"ERP integration API"})
 public interface ErpAPI {
 
     /**
