@@ -44,7 +44,7 @@ import org.springframework.beans.factory.annotation.Value;
 public class ChannelController implements ChannelAPI{
 
     @SuppressWarnings("unused")
-    private static Logger logger = LoggerFactory.getLogger(ChannelController.class);
+    private final Logger logger = LoggerFactory.getLogger(ChannelController.class);
 
     @Autowired
     private IdentityResolver identityResolver;
@@ -91,7 +91,7 @@ public class ChannelController implements ChannelAPI{
 
         // check if company id matches; TBD : solve Exception with partyID
         String companyID = identityResolver.resolveCompanyId(bearer);
-        if (isAuthorized(createChannelRequest, companyID) == false) {
+        if (!isAuthorized(createChannelRequest, companyID)) {
             return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
         }
 
@@ -99,7 +99,7 @@ public class ChannelController implements ChannelAPI{
         ChannelConfiguration channelConfiguration = channelConfigurationRepository.findOneByBusinessProcessID( createChannelRequest.getBusinessProcessID() );
         if (channelConfiguration != null) {
             //duplicated businessProcessID
-            if (isAuthorized(channelConfiguration, companyID) == true) {
+            if (isAuthorized(channelConfiguration, companyID)) {
                 return new ResponseEntity<>(channelConfiguration, HttpStatus.BAD_REQUEST);
             } else return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
@@ -134,7 +134,7 @@ public class ChannelController implements ChannelAPI{
 
         // check if request is authorized
         String companyID = identityResolver.resolveCompanyId(bearer);
-        if (isAuthorized(channelConfiguration, companyID) == false) {
+        if (!isAuthorized(channelConfiguration, companyID)) {
             return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
         }
 
@@ -211,7 +211,7 @@ public class ChannelController implements ChannelAPI{
 
         // check if request is authorized
         String companyID = identityResolver.resolveCompanyId(bearer);
-        if (isAuthorized(channelConfiguration, companyID) == false) {
+        if (!isAuthorized(channelConfiguration, companyID)) {
             return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
         }
 
@@ -271,7 +271,7 @@ public class ChannelController implements ChannelAPI{
 
         // check if request is authorized
         String companyID = identityResolver.resolveCompanyId(bearer);
-        if (isAuthorized(channelConfiguration, companyID) == false) {
+        if (!isAuthorized(channelConfiguration, companyID)) {
             return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
         }
 
@@ -318,7 +318,7 @@ public class ChannelController implements ChannelAPI{
 
         // check if request is authorized
         String companyID = identityResolver.resolveCompanyId(bearer);
-        if (isAuthorized(channelConfiguration, companyID) == false) {
+        if (!isAuthorized(channelConfiguration, companyID)) {
             return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
         }
 
@@ -359,7 +359,7 @@ public class ChannelController implements ChannelAPI{
 
         // check if request is authorized
         String companyID = identityResolver.resolveCompanyId(bearer);
-        if (isAuthorized(channelConfiguration, companyID) == false) {
+        if (!isAuthorized(channelConfiguration, companyID)) {
             return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
         }
 
@@ -392,7 +392,7 @@ public class ChannelController implements ChannelAPI{
 
         // check if request is authorized
         String companyID = identityResolver.resolveCompanyId(bearer);
-        if (isAuthorized(channelConfiguration, companyID) == false) {
+        if (!isAuthorized(channelConfiguration, companyID)) {
             return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
         }
 
@@ -460,7 +460,7 @@ public class ChannelController implements ChannelAPI{
 
         // check if request is authorized
         String companyID = identityResolver.resolveCompanyId(bearer);
-        if (isAuthorized(channelConfiguration, companyID) == false) {
+        if (!isAuthorized(channelConfiguration, companyID)) {
             return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
         }
 
@@ -489,7 +489,7 @@ public class ChannelController implements ChannelAPI{
 
         // check if request is authorized
         String companyID = identityResolver.resolveCompanyId(bearer);
-        if (isAuthorized(channelConfiguration, companyID) == false) {
+        if (!isAuthorized(channelConfiguration, companyID)) {
             return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
         }
 
@@ -525,7 +525,7 @@ public class ChannelController implements ChannelAPI{
 
         // check if request is authorized
         String companyID = identityResolver.resolveCompanyId(bearer);
-        if (isAuthorized(channelConfiguration, companyID) == false) {
+        if (!isAuthorized(channelConfiguration, companyID)) {
             return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
         }
 
@@ -562,7 +562,7 @@ public class ChannelController implements ChannelAPI{
 
         // check if request is authorized
         String companyID = identityResolver.resolveCompanyId(bearer);
-        if (isAuthorized(channelConfiguration, companyID) == false) {
+        if (!isAuthorized(channelConfiguration, companyID)) {
             return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
         }
 
@@ -591,7 +591,7 @@ public class ChannelController implements ChannelAPI{
 
         // check if request is authorized
         String companyID = identityResolver.resolveCompanyId(bearer);
-        if (isAuthorized(channelConfiguration, companyID) == false) {
+        if (!isAuthorized(channelConfiguration, companyID)) {
             return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
         }
 
@@ -623,7 +623,7 @@ public class ChannelController implements ChannelAPI{
 
         // check if request is authorized
         String companyID = identityResolver.resolveCompanyId(bearer);
-        if (isAuthorized(channelConfiguration, companyID) == false) {
+        if (!isAuthorized(channelConfiguration, companyID)) {
             return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
         }
 

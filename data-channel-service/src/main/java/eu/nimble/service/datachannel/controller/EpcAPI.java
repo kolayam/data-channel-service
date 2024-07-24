@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@Api(value = "epc", description = "the epc API")
+@Api(value = "epc", tags = {"the epc API"})
 public interface EpcAPI {
 
     /**
