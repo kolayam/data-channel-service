@@ -25,7 +25,7 @@ import java.util.Set;
 @Api("EPC Code API")
 public class EpcController implements EpcAPI {
 
-    private static Logger logger = LoggerFactory.getLogger(EpcController.class);
+    private final Logger logger = LoggerFactory.getLogger(EpcController.class);
 
     @Autowired
     private EpcCodesRepository epcCodesRepository;

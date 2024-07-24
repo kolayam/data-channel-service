@@ -11,7 +11,7 @@ import request.CreateChannel;
 
 import java.io.IOException;
 
-@Api(value = "channel", description = "the channel API")
+@Api(value = "channel", tags = {"the channel API"})
 public interface ChannelAPI {
 
 
